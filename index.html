@@ -67,6 +67,18 @@
       .mobile-menu.active {
         transform: translateX(0);
       }
+
+      /* Add smooth fade-out animation */
+      .fade-out {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      /* Make sure messages are visible by default when not hidden */
+      #successMessage,
+      #errorMessage {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
     </style>
     <script>
       tailwind.config = {
@@ -1031,6 +1043,36 @@
         }
       }
 
+      // Function to hide messages after delay with smooth animation
+      function hideMessagesAfterDelay() {
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        console.log('hideMessagesAfterDelay called');
+
+        // Hide success message after 5 seconds with fade out
+        if (successMessage && !successMessage.classList.contains('hidden')) {
+          setTimeout(() => {
+            successMessage.classList.add('fade-out');
+            setTimeout(() => {
+              successMessage.classList.add('hidden');
+              successMessage.classList.remove('fade-out');
+            }, 500); // Wait for fade-out animation to complete
+          }, 5000); // 5000ms = 5 seconds
+        }
+
+        // Hide error message after 8 seconds with fade out
+        if (errorMessage && !errorMessage.classList.contains('hidden')) {
+          setTimeout(() => {
+            errorMessage.classList.add('fade-out');
+            setTimeout(() => {
+              errorMessage.classList.add('hidden');
+              errorMessage.classList.remove('fade-out');
+            }, 500); // Wait for fade-out animation to complete
+          }, 8000); // 8000ms = 8 seconds
+        }
+      }
+
       // Handle form submission
       function handleFormSubmit(e) {
         e.preventDefault();
@@ -1077,6 +1119,9 @@
                   block: 'center',
                 });
               }
+
+              // Auto-hide success message after 5 seconds
+              hideMessagesAfterDelay();
             } else {
               throw new Error(
                 'Form submission failed with status: ' + response.status
@@ -1089,6 +1134,9 @@
             if (errorMessage) {
               errorMessage.classList.remove('hidden');
               console.log('Error message shown');
+
+              // Auto-hide error message after 8 seconds
+              hideMessagesAfterDelay();
             }
           })
           .finally(() => {
