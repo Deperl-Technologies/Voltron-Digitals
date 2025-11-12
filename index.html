@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voltron Digitals - Turn Websites Into 24/7 Sales Machines</title>
+    <link rel="icon" type="image/x-icon" href="/VoltronLOGO.ico" />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^='ri-'])::before {
+        content: '\f3c2';
+      }
+      input[type='checkbox'] {
+        display: none;
+      }
+      /* Custom checkbox styles */
+      .custom-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #d1d5db;
+        border-radius: 3px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+      }
+
+      input[type='checkbox']:checked + .custom-checkbox {
+        background-color: black;
+        border-color: black;
+      }
+
+      input[type='checkbox']:checked + .custom-checkbox::after {
+        content: '✓';
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .hidden {
+        display: none;
+      }
+      .custom-checkbox.checked {
+        background-color: #000;
+      }
+      .custom-checkbox.checked::after {
+        content: '✓';
+        color: white;
+        font-size: 0.875rem;
+      }
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#000000',
+              secondary: '#ffffff',
+            },
+            borderRadius: {
+              none: '0px',
+              sm: '4px',
+              DEFAULT: '8px',
+              md: '12px',
+              lg: '16px',
+              xl: '20px',
+              '2xl': '24px',
+              '3xl': '32px',
+              full: '9999px',
+              button: '8px',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-white text-black">
+    <!-- Header -->
+    <header class="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="font-['Pacifico'] text-xs font-bold text-black">
+            <div class="flex items-center">
+              <img
+                src="/VoltronLOGO.png"
+                alt="Voltron Digitals Logo"
+                class="h-8 w-auto pl-6"
+              />
+            </div>
+            Voltron Digitals
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#services"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Services</a
+            >
+            <a
+              href="#portfolio"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Portfolio</a
+            >
+            <a
+              href="#about"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button
+            class="md:hidden w-6 h-6 flex items-center justify-center"
+            id="mobile-menu-btn"
+          >
+            <i class="ri-menu-line ri-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        class="mobile-menu fixed top-0 right-0 w-64 h-full bg-white shadow-xl z-50 md:hidden"
+        id="mobile-menu"
+      >
+        <div class="p-6">
+          <button
+            class="w-6 h-6 flex items-center justify-center mb-8"
+            id="close-menu-btn"
+          >
+            <i class="ri-close-line ri-lg"></i>
+          </button>
+          <nav class="flex flex-col space-y-6">
+            <a
+              href="#home"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#services"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Services</a
+            >
+            <a
+              href="#portfolio"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Portfolio</a
+            >
+            <a
+              href="#about"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="text-black hover:text-gray-600 transition-colors font-medium"
+              >Contact</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="relative min-h-screen bg-black text-white overflow-hidden"
+      style="
+        background-image: url('https://readdy.ai/api/search-image?query=Modern%20minimalist%20digital%20workspace%20with%20sleek%20computer%20setup%2C%20clean%20white%20desk%2C%20professional%20lighting%2C%20subtle%20tech%20elements%2C%20geometric%20patterns%20in%20background%2C%20high-end%20office%20environment%20with%20black%20and%20white%20color%20scheme%2C%20premium%20business%20atmosphere%2C%20sophisticated%20design%20elements%2C%20clean%20lines%20and%20modern%20architecture&width=1920&height=1080&seq=hero-bg&orientation=landscape');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div class="relative w-full min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+              Turn Your Website Into A
+              <span class="text-white">24/7 Sales Machine</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-4">
+              Website Designer • Developer • Strategist
+            </p>
+            <p class="text-lg md:text-xl text-gray-400 mb-8">
+              Helping brands convert clicks into customers
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                class="bg-white text-black px-8 py-4 !rounded-button font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap"
+              >
+                <a href="#contact"> Get Started</a>
+              </button>
+              <button
+                class="border-2 border-white text-white px-8 py-4 !rounded-button font-semibold hover:bg-white hover:text-black transition-colors whitespace-nowrap"
+              >
+                <a href="#portfolio"> View Portfolio</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold text-black mb-6">
+            Services That Drive Results
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive digital solutions designed to transform your online
+            presence into a powerful revenue generator
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            id="design"
+            class="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div
+              class="w-16 h-16 bg-black rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-palette-line ri-2x text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-black mb-4">Website Design</h3>
+            <p class="text-gray-600 mb-6">
+              Creating visually stunning, user-centric designs that captivate
+              your audience and drive engagement from the first click.
+            </p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Custom UI/UX Design
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Mobile-First Approach
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Brand Integration
+              </li>
+            </ul>
+          </div>
+
+          <div
+            id="dev"
+            class="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div
+              class="w-16 h-16 bg-black rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-code-line ri-2x text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-black mb-4">
+              Website Development
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Building fast, secure, and scalable websites with clean code and
+              optimized performance for maximum conversion rates.
+            </p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Responsive Development
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Performance Optimization
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                SEO Implementation
+              </li>
+            </ul>
+          </div>
+
+          <div
+            id="strategy"
+            class="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div
+              class="w-16 h-16 bg-black rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-line-chart-line ri-2x text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-black mb-4">Digital Strategy</h3>
+            <p class="text-gray-600 mb-6">
+              Developing data-driven strategies that align with your business
+              goals and maximize your digital marketing ROI.
+            </p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Conversion Optimization
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Analytics & Tracking
+              </li>
+              <li class="flex items-center">
+                <i class="ri-check-line text-black mr-2"></i>
+                Growth Planning
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold text-black mb-6">
+            Portfolio Showcase
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover how we've transformed businesses with strategic design and
+            development solutions
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Modern%20e-commerce%20website%20homepage%20design%20with%20clean%20layout%2C%20professional%20product%20showcase%2C%20elegant%20typography%2C%20minimalist%20white%20background%2C%20premium%20shopping%20interface%2C%20high-end%20retail%20design%2C%20sophisticated%20user%20experience%2C%20contemporary%20web%20design&width=600&height=400&seq=portfolio-1&orientation=landscape"
+                alt="E-commerce Platform"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-black mb-2">
+                Premium E-commerce Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Luxury fashion brand website with 300% increase in conversion
+                rates
+              </p>
+              <button
+                class="text-black font-semibold hover:text-gray-600 transition-colors whitespace-nowrap"
+              ></button>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Professional%20SaaS%20software%20dashboard%20interface%2C%20clean%20modern%20design%2C%20data%20visualization%20charts%2C%20minimalist%20layout%2C%20business%20application%20interface%2C%20contemporary%20software%20design%2C%20sleek%20user%20interface%2C%20professional%20web%20application&width=600&height=400&seq=portfolio-2&orientation=landscape"
+                alt="SaaS Dashboard"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-black mb-2">
+                SaaS Dashboard Redesign
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Complete UX overhaul resulting in 45% improved user engagement
+              </p>
+              <button
+                class="text-black font-semibold hover:text-gray-600 transition-colors whitespace-nowrap"
+              ></button>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Corporate%20business%20website%20homepage%2C%20professional%20company%20layout%2C%20modern%20corporate%20design%2C%20clean%20business%20interface%2C%20executive%20branding%2C%20sophisticated%20web%20presence%2C%20premium%20business%20website%2C%20contemporary%20corporate%20identity&width=600&height=400&seq=portfolio-3&orientation=landscape"
+                alt="Corporate Website"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-black mb-2">
+                Corporate Website Transformation
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Fortune 100 company rebrand with enhanced digital presence
+              </p>
+              <button
+                class="text-black font-semibold hover:text-gray-600 transition-colors whitespace-nowrap"
+              ></button>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Restaurant%20website%20design%20with%20elegant%20menu%20layout%2C%20food%20photography%20showcase%2C%20modern%20dining%20interface%2C%20hospitality%20web%20design%2C%20culinary%20brand%20presentation%2C%20sophisticated%20restaurant%20branding%2C%20premium%20dining%20experience%20website&width=600&height=400&seq=portfolio-4&orientation=landscape"
+                alt="Restaurant Website"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-black mb-2">
+                Fine Dining Restaurant
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Michelin-starred restaurant with online reservation system
+              </p>
+              <button
+                class="text-black font-semibold hover:text-gray-600 transition-colors whitespace-nowrap"
+              ></button>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Healthcare%20medical%20website%20interface%2C%20professional%20medical%20design%2C%20clean%20healthcare%20layout%2C%20modern%20clinic%20website%2C%20medical%20practice%20branding%2C%20sophisticated%20healthcare%20web%20presence%2C%20contemporary%20medical%20interface&width=600&height=400&seq=portfolio-5&orientation=landscape"
+                alt="Healthcare Platform"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-black mb-2">
+                Healthcare Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Patient portal with appointment booking and telemedicine
+                features
+              </p>
+              <button
+                class="text-black font-semibold hover:text-gray-600 transition-colors whitespace-nowrap"
+              ></button>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=Real%20estate%20property%20website%20design%2C%20modern%20property%20listings%20interface%2C%20elegant%20real%20estate%20branding%2C%20sophisticated%20property%20showcase%2C%20contemporary%20real%20estate%20web%20design%2C%20premium%20property%20portal%2C%20professional%20real%20estate%20platform&width=600&height=400&seq=portfolio-6&orientation=landscape"
+                alt="Real Estate Platform"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-black mb-2">
+                Real Estate Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Property marketplace with advanced search and virtual tours
+              </p>
+              <button
+                class="text-black font-semibold hover:text-gray-600 transition-colors whitespace-nowrap"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <img
+              src="https://readdy.ai/api/search-image?query=Professional%20business%20portrait%20of%20confident%20web%20designer%20and%20developer%2C%20modern%20office%20setting%2C%20clean%20minimalist%20background%2C%20sophisticated%20lighting%2C%20contemporary%20professional%20headshot%2C%20executive%20style%20photography%2C%20premium%20business%20portrait%2C%20modern%20workspace%20environment&width=600&height=600&seq=about-portrait&orientation=squarish"
+              alt="Professional Portrait"
+              class="w-full rounded-lg object-cover object-top"
+            />
+          </div>
+          <div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+              Transforming Digital Experiences
+            </h2>
+            <p class="text-xl text-gray-300 mb-6">
+              With over 8 years of experience in web design, development, and
+              digital strategy, I specialize in creating websites that don't
+              just look great—they perform exceptionally.
+            </p>
+            <p class="text-lg text-gray-400 mb-8">
+              My approach combines cutting-edge design principles with
+              conversion-focused strategies to ensure every website becomes a
+              powerful sales tool. From startups to Fortune 100+ companies, I've
+              helped businesses across industries achieve remarkable digital
+              transformation.
+            </p>
+
+            <div class="grid grid-cols-2 gap-8 mb-8">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">150+</div>
+                <div class="text-gray-400">Projects Completed</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">98%</div>
+                <div class="text-gray-400">Client Satisfaction</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">250%</div>
+                <div class="text-gray-400">Average ROI Increase</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-2">24/7</div>
+                <div class="text-gray-400">Sales Machine</div>
+              </div>
+            </div>
+
+            <button
+              class="bg-white text-black px-8 py-4 !rounded-button font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap"
+            >
+              <a href="#contact"> Let's Work Together</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-bold text-black mb-6">
+            Ready to Transform Your Business?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Let's discuss how we can turn your website into a powerful
+            revenue-generating machine
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold text-black mb-6">Get In Touch</h3>
+            <div class="space-y-6">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mr-4"
+                >
+                  <i class="ri-mail-line ri-lg text-white"></i>
+                </div>
+                <div>
+                  <div class="font-semibold text-black">Email</div>
+                  <a
+                    href="mailto:voltrondigitalco@gmail.com?subject=Website%20Enquiry&body=Hello%20Voltron%20Digitals%2C%20I%20would%20like%20to%20get%20more%20information%20about%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-gray-600 hover:text-black transition-colors"
+                  >
+                    voltrondigitalco@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mr-4"
+                >
+                  <i class="ri-whatsapp-line ri-lg text-white"></i>
+                </div>
+                <div>
+                  <div class="font-semibold text-black">WhatsApp Business</div>
+                  <a
+                    href="http://wa.me/+447853090015?text=Hello%20Voltron%20Digitals%2C%20I%20would%20like%20to%20get%20get%20started%20to%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-gray-600 hover:text-black transition-colors"
+                  >
+                    +44 7853 090015
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mr-4"
+                >
+                  <i class="ri-time-line ri-lg text-white"></i>
+                </div>
+                <div>
+                  <div class="font-semibold text-black">Response Time</div>
+                  <div class="text-gray-600">Within 24 hours</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/mpwkzlqa"
+              method="POST"
+              class="space-y-6"
+            >
+              <!-- Full Name -->
+              <div>
+                <label class="block text-sm font-medium text-black mb-2"
+                  >Full Name *</label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-sm"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <!-- Email Address -->
+              <div>
+                <label class="block text-sm font-medium text-black mb-2"
+                  >Email Address *</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-sm"
+                  placeholder="Enter your email address"
+                  required
+                />
+              </div>
+
+              <!-- Phone Number -->
+              <div>
+                <label class="block text-sm font-medium text-black mb-2"
+                  >Phone Number *</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-sm"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+
+              <!-- Currency Selection -->
+              <div>
+                <label class="block text-sm font-medium text-black mb-2"
+                  >Currency *</label
+                >
+                <select
+                  id="currency"
+                  name="currency"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-sm bg-white"
+                  required
+                  onchange="updateBudgetOptions()"
+                >
+                  <option value="">Select your currency</option>
+                  <option value="USD">US Dollar ($)</option>
+                  <option value="GBP">British Pound (£)</option>
+                  <option value="EUR">Euro (€)</option>
+                  <option value="CAD">Canadian Dollar (C$)</option>
+                  <option value="AUD">Australian Dollar (A$)</option>
+                  <option value="NGN">Nigerian Naira (₦)</option>
+                  <option value="INR">Indian Rupee (₹)</option>
+                  <option value="CNY">Chinese Yuan (¥)</option>
+                </select>
+              </div>
+
+              <!-- Project Budget (Dynamic based on currency) -->
+              <div>
+                <label class="block text-sm font-medium text-black mb-2"
+                  >Project Budget *</label
+                >
+                <select
+                  id="budget"
+                  name="budget"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-sm bg-white"
+                  required
+                >
+                  <option value="">Select your budget range</option>
+                  <!-- Budget options will be populated dynamically -->
+                </select>
+              </div>
+
+              <!-- Project Details -->
+              <div>
+                <label class="block text-sm font-medium text-black mb-2"
+                  >Project Details *</label
+                >
+                <textarea
+                  id="projectDetails"
+                  name="projectDetails"
+                  rows="4"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent text-sm"
+                  placeholder="Tell us about your project requirements..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  id="marketing"
+                  name="marketing"
+                  class="hidden"
+                />
+                <label for="marketing" class="custom-checkbox mr-3"></label>
+                <label
+                  for="marketing"
+                  class="text-sm text-gray-600 cursor-pointer"
+                >
+                  I agree to receive marketing communications and updates
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full bg-black text-white px-8 py-4 !rounded-button font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap"
+              >
+                Send Message
+              </button>
+
+              <!-- Success Message (Hidden by default) -->
+              <div
+                id="successMessage"
+                class="hidden p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg"
+              >
+                ✅ Thank you! Your message has been sent successfully. We'll
+                contact you within 24 hours.
+              </div>
+
+              <!-- Error Message (Hidden by default) -->
+              <div
+                id="errorMessage"
+                class="hidden p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg"
+              >
+                ❌ There was an error sending your message. Please try again or
+                contact us directly.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="font-['Pacifico'] text-2xl font-bold text-white mb-4">
+              Voltron Digitals
+            </div>
+            <p class="text-gray-400 mb-4">
+              Transforming websites into 24/7 sales machines through strategic
+              design and development.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-white mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#design" class="hover:text-white transition-colors"
+                  >Website Design</a
+                >
+              </li>
+              <li>
+                <a href="#dev" class="hover:text-white transition-colors"
+                  >Web Development</a
+                >
+              </li>
+              <li>
+                <a href="#strategy" class="hover:text-white transition-colors"
+                  >Digital Strategy</a
+                >
+              </li>
+              <li>
+                <a href="#dev" class="hover:text-white transition-colors"
+                  >SEO Optimization</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-white mb-4">Company</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#portfolio" class="hover:text-white transition-colors"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-white mb-4">Contact Info</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="mailto:voltrondigitalco@gmail.com?subject=Website%20Enquiry&body=Hello%20Voltron%20Digitals%2C%20I%20would%20like%20to%20get%20more%20information%20about%20your%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-white transition-colors"
+                >
+                  voltrondigitalco@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://wa.me/+447853090015?text=Hello%20Voltron%20Digitals%2C%20I%20would%20like%20to%20get%20get%20started%20to%20your%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-white transition-colors"
+                >
+                  +44 7853 090015
+                </a>
+              </li>
+              <li>Available 24/7</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-4 pb-0 md:pb-2 lg:pb-2">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0 lg:mb-2">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              Voltron Digitals. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script id="mobile-menu-script">
+      document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuBtn.addEventListener('click', function () {
+          mobileMenu.classList.add('active');
+        });
+
+        closeMenuBtn.addEventListener('click', function () {
+          mobileMenu.classList.remove('active');
+        });
+
+        menuLinks.forEach((link) => {
+          link.addEventListener('click', function () {
+            mobileMenu.classList.remove('active');
+          });
+        });
+      });
+    </script>
+
+    <!-- JavaScript FORM  -->
+    <script>
+      // Currency symbols and budget ranges
+      const currencyData = {
+        USD: {
+          symbol: '$',
+          ranges: [
+            '$100 - $500',
+            '$600 - $1,000',
+            '$1,100 - $2,500',
+            '$2,600 - $5,000',
+            '$5,100 - $10,000',
+            '$10,000+',
+          ],
+        },
+        GBP: {
+          symbol: '£',
+          ranges: [
+            '£100 - £500',
+            '£600 - £1,000',
+            '£1,100 - £2,500',
+            '£2,600 - £5,000',
+            '£5,100 - £10,000',
+            '£10,000+',
+          ],
+        },
+        EUR: {
+          symbol: '€',
+          ranges: [
+            '€100 - €500',
+            '€600 - €1,000',
+            '€1,100 - €2,500',
+            '€2,600 - €5,000',
+            '€5,100 - €10,000',
+            '€10,000+',
+          ],
+        },
+        CAD: {
+          symbol: 'C$',
+          ranges: [
+            'C$100 - C$500',
+            'C$600 - C$1,000',
+            'C$1,100 - C$2,500',
+            'C$2,600 - C$5,000',
+            'C$5,100 - C$10,000',
+            'C$10,000+',
+          ],
+        },
+        AUD: {
+          symbol: 'A$',
+          ranges: [
+            'A$100 - A$500',
+            'A$600 - A$1,000',
+            'A$1,100 - A$2,500',
+            'A$2,600 - A$5,000',
+            'A$5,100 - A$10,000',
+            'A$10,000+',
+          ],
+        },
+        NGN: {
+          symbol: '₦',
+          ranges: [
+            '₦100,000 - ₦200,000',
+            '₦200,000 - ₦500,000',
+            '₦500,000 - ₦1,000,000',
+            '₦1,000,000 - ₦2,500,000',
+            '₦2,500,000 - ₦5,000,000',
+            '₦5,000,000+',
+          ],
+        },
+        INR: {
+          symbol: '₹',
+          ranges: [
+            '₹10,000 - ₹50,000',
+            '₹50,100 - ₹100,000',
+            '₹100,100 - ₹250,000',
+            '₹250,100 - ₹500,000',
+            '₹500,100 - ₹1,000,000',
+            '₹1,000,000+',
+          ],
+        },
+        CNY: {
+          symbol: '¥',
+          ranges: [
+            '¥1,000 - ¥3,000',
+            '¥3,100 - ¥6,000',
+            '¥6,100 - ¥15,000',
+            '¥15,100 - ¥30,000',
+            '¥30,100 - ¥60,000',
+            '¥60,000+',
+          ],
+        },
+      };
+
+      // Update budget options based on selected currency
+      function updateBudgetOptions() {
+        console.log('updateBudgetOptions called');
+        const currencySelect = document.getElementById('currency');
+        const budgetSelect = document.getElementById('budget');
+
+        if (!currencySelect || !budgetSelect) {
+          console.error('Currency or budget select elements not found');
+          return;
+        }
+
+        const selectedCurrency = currencySelect.value;
+        console.log('Selected currency:', selectedCurrency);
+
+        // Clear existing options
+        budgetSelect.innerHTML =
+          '<option value="">Select your budget range</option>';
+
+        if (selectedCurrency && currencyData[selectedCurrency]) {
+          const ranges = currencyData[selectedCurrency].ranges;
+          console.log('Adding ranges:', ranges);
+
+          // Add new options based on currency
+          ranges.forEach((range) => {
+            const option = document.createElement('option');
+            option.value = range;
+            option.textContent = range;
+            budgetSelect.appendChild(option);
+          });
+        }
+      }
+
+      // Handle form submission
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        console.log('Form submitted');
+
+        const form = e.target;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+
+        // Show loading state
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        // Hide any previous messages
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (successMessage) successMessage.classList.add('hidden');
+        if (errorMessage) errorMessage.classList.add('hidden');
+
+        // Submit form via Formspree
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            Accept: 'application/json',
+          },
+        })
+          .then((response) => {
+            console.log('Formspree response status:', response.status);
+            if (response.ok) {
+              // Show success message
+              if (successMessage) {
+                successMessage.classList.remove('hidden');
+                console.log('Success message shown');
+              }
+              form.reset();
+              updateBudgetOptions();
+
+              // Scroll to success message
+              if (successMessage) {
+                successMessage.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center',
+                });
+              }
+            } else {
+              throw new Error(
+                'Form submission failed with status: ' + response.status
+              );
+            }
+          })
+          .catch((error) => {
+            // Show error message
+            console.error('Form submission error:', error);
+            if (errorMessage) {
+              errorMessage.classList.remove('hidden');
+              console.log('Error message shown');
+            }
+          })
+          .finally(() => {
+            // Reset button
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+            console.log('Button reset');
+          });
+      }
+
+      // Fix checkbox functionality
+      function setupCheckboxes() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        console.log('Found checkboxes:', checkboxes.length);
+
+        checkboxes.forEach((checkbox) => {
+          // Set initial state
+          const customCheckbox = checkbox.nextElementSibling;
+          if (checkbox.checked && customCheckbox) {
+            customCheckbox.style.backgroundColor = 'black';
+            customCheckbox.style.borderColor = 'black';
+          }
+
+          // Add change event
+          checkbox.addEventListener('change', function () {
+            console.log('Checkbox changed:', this.checked);
+            const customCheckbox = this.nextElementSibling;
+            if (this.checked && customCheckbox) {
+              customCheckbox.style.backgroundColor = 'black';
+              customCheckbox.style.borderColor = 'black';
+            } else if (customCheckbox) {
+              customCheckbox.style.backgroundColor = 'white';
+              customCheckbox.style.borderColor = '#d1d5db';
+            }
+          });
+        });
+      }
+
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM loaded - initializing form');
+
+        // Initialize budget options
+        updateBudgetOptions();
+
+        // Add event listener to form
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+          console.log('Contact form found, adding event listener');
+          contactForm.addEventListener('submit', handleFormSubmit);
+        } else {
+          console.error('Contact form not found!');
+        }
+
+        // Setup checkboxes
+        setupCheckboxes();
+
+        // Also add change event to currency select
+        const currencySelect = document.getElementById('currency');
+        if (currencySelect) {
+          currencySelect.addEventListener('change', updateBudgetOptions);
+        }
+      });
+
+      // Fallback in case DOMContentLoaded already fired
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initForm);
+      } else {
+        // DOM already loaded
+        setTimeout(() => {
+          updateBudgetOptions();
+          const contactForm = document.getElementById('contactForm');
+          if (contactForm) {
+            contactForm.addEventListener('submit', handleFormSubmit);
+          }
+          setupCheckboxes();
+        }, 100);
+      }
+    </script>
+
+    <script id="smooth-scroll-script">
+      document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach((link) => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
+            }
+          });
+        });
+      });
+    </script>
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                });
+            }
+            ((p = t.createElement('script')).type = 'text/javascript'),
+              (p.crossOrigin = 'anonymous'),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') +
+                '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
+                p,
+                r
+              );
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return (
+                    'posthog' !== a && (e += '.' + a), t || (e += ' (stub)'), e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug'.split(
+                    ' '
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_performance: {
+          web_vitals: false,
+        },
+        rageclick: false,
+      });
+      window.shareKey = 'r-HoVRVqagzJc9XFtxs9_Q';
+      window.host = 'readdy.ai';
+    </script>
+    <!-- <script src="https://static.readdy.ai/static/share.js"></script> -->
+  </body>
+</html>
